@@ -1,5 +1,5 @@
 # DebugBar
 
-[![Build Status](https://travis-ci.org/Prowect/DebugBar.svg)](https://travis-ci.org/Prowect/DebugBar)
-[![Code Climate](https://codeclimate.com/github/Prowect/DebugBar/badges/gpa.svg)](https://codeclimate.com/github/Prowect/DebugBar)
-[![Test Coverage](https://codeclimate.com/github/Prowect/DebugBar/badges/coverage.svg)](https://codeclimate.com/github/Prowect/DebugBar/coverage)
+[![Build Status](https://travis-ci.org/Prowect/Debugbar.svg)](https://travis-ci.org/Prowect/Debugbar)
+[![Code Climate](https://codeclimate.com/github/Prowect/Debugbar/badges/gpa.svg)](https://codeclimate.com/github/Prowect/Debugbar)
+[![Test Coverage](https://codeclimate.com/github/Prowect/Debugbar/badges/coverage.svg)](https://codeclimate.com/github/Prowect/Debugbar/coverage)
