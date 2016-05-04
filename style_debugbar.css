@@ -27,11 +27,14 @@ nav a{
 
 #debugbar-content {
     color: black;
-    display: block;
-    padding:10px 15px;
+    /*display: none;*/
 }
 
 #debugbar-header{
     border-bottom:1px solid black;
     padding:15px;
+}
+
+#debugbar .tab {
+    display: none;
 }
