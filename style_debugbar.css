@@ -1,0 +1,37 @@
+@import url(https://fonts.googleapis.com/css?family=Maven+Pro);
+body{
+    font-family:'Maven Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+nav a{
+    color:black;
+    text-decoration:none;
+    width:30px;
+    display:inline-block;
+}
+
+#debugbar{
+    color:white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f5f7fa;
+}
+
+#debugbar-header {
+    background-color:#434a54;
+}
+
+#debugbar-content {
+    color: black;
+    display: block;
+    padding:10px 15px;
+}
+
+#debugbar-header{
+    border-bottom:1px solid black;
+    padding:15px;
+}
