@@ -1,0 +1,73 @@
+<style>
+<?php include __DIR__.'/style.css'; ?>
+</style>
+
+<div id="debugbar">
+    <header id="debugbar-header">
+        <img src="data:image/png;base64,<?= base64_encode(file_get_contents(__DIR__.'/Drips.png')) ?>" id="debugbar-logo" width="20" height="20">
+        <span id="debugbar-header-close">X</span>
+        <div style="float: right;">
+            <?php foreach ($this->getInfos() as $name => $info): ?>
+                <span id="debugbarinfo-<?= $name ?>"><?= $info ?></span>
+            <?php endforeach; ?>
+        </div>
+        <nav>
+            <?php foreach ($this->getTabs() as $name => $tab): ?>
+                <a href="#debugbartab-<?= $name ?>"><?= $tab[$this::TITLE] ?></a>
+            <?php endforeach; ?>
+        </nav>
+    </header>
+    <div id="debugbar-content">
+        <?php foreach ($this->getTabs() as $name => $tab): ?>
+            <div class="tab" id="debugbartab-<?= $name ?>">
+                <?= $tab[$this::CONTENT] ?>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>
+
+<script>
+window.jQuery || document.write('<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"><\/script>')
+</script>
+<script src="http://code.interactjs.io/v1.2.6/interact.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#debugbar-content .tab").eq(0).show();
+
+    $("#debugbar-header a").click(function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        id = $(this).prop("href").substr($(this).prop("href").indexOf("#"));
+        $("#debugbar-content .tab").hide();
+        $("#debugbar-header a").removeClass("debugbartab-active");
+        $("#debugbar-content").show();
+        $("#debugbar-header-close").show();
+        $(id).show();
+        $(this).addClass("debugbartab-active");
+    });
+
+    $("#debugbar-header-close").click(function(e){
+        $("#debugbar-content").hide();
+        $(this).hide();
+        $("#debugbar-header a").removeClass("debugbartab-active");
+    });
+});
+
+interact('#debugbar-content')
+  .resizable({
+    edges: { top: true }
+  })
+  .on('resizemove', function (event) {
+    var target = event.target,
+        x = (parseFloat(target.getAttribute('data-x')) || 0),
+        y = (parseFloat(target.getAttribute('data-y')) || 0);
+
+    target.style.height = event.rect.height + 'px';
+
+    target.style.webkitTransform = target.style.transform =
+        'translate(' + x + 'px,' + y + 'px)';
+
+    target.setAttribute('data-x', x);
+    target.setAttribute('data-y', y);
+  });
+</script>
