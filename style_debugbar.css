@@ -4,18 +4,22 @@ body{
     margin: 0;
     padding: 0;
 }
-
-a{
-    color:black;
+#debugbar-logo{
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+#debugbar a {
+    color:white;
     text-decoration:none;
     display:inline-block;
-    padding:15px;
+    padding:5px 10px;
+    margin-right: -5px;
 }
-
-a:hover{
+#debugbar a:hover, .debugbartab-active{
     background-color:#A0D486;
 }
-a:active{
+#debugbar a:active{
     background-color:#8CC152;
 }
 #debugbar{
@@ -37,6 +41,8 @@ a:active{
 
 #debugbar-header{
     background-color:#434a54;
+    position: relative;
+    padding-left: 30px;
 }
 
 #debugbar .tab {

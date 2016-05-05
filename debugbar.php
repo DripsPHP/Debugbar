@@ -3,6 +3,7 @@
 
 <div id="debugbar">
     <header id="debugbar-header">
+        <img src="Drips.png" id="debugbar-logo" width="20" height="20">
         <nav>
             <a href="#debugbartab-A">A</a>
             <a href="#debugbartab-B">B</a>
@@ -35,8 +36,10 @@ $(document).ready(function(){
         e.stopPropagation();
         id = $(this).prop("href").substr($(this).prop("href").indexOf("#"));
         $("#debugbar-content .tab").hide();
+        $("#debugbar-header a").removeClass("debugbartab-active");
         $("#debugbar-content").show();
         $(id).show();
+        $(this).addClass("debugbartab-active");
     });
 
     $("#debugbar-header").click(function(e){
