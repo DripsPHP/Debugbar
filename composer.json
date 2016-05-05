@@ -1,0 +1,14 @@
+{
+    "name": "drips/debugbar",
+    "description": "Dynamische Debugbar zum Debuggen von PHP-Webanwendungen.",
+    "keywords": ["debug", "debugbar"],
+    "license": "MIT",
+    "require": {
+        "drips/utils": "^0.1.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Drips\\Debugbar\\": "src"
+        }
+    }
+}
