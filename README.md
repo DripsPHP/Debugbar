@@ -31,3 +31,23 @@ Debugbar::on("create", function($bar){
 echo Debugbar::getInstance();
 
 ```
+
+## Neue Tabs definieren
+
++ Funktion in Outputbuffer speichern
++ Neue Tabs registrieren
+
+```php
+<?php
+
+Debugbar::on("create", function($bar){
+    $buffer = new Drips\Utils\Outputbuffer;
+    $buffer->start();
+    phpinfo();
+    $buffer->end();
+    $bar->registerTab("phpinfo", "PHP Info", $buffer->getContent());
+
+});
+echo Debugbar::getInstance();
+
+```
