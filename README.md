@@ -7,7 +7,7 @@
 
 ## Beschreibung
 
-Erweiterbare Debugbar zum Debuggen von PHP-Webanwendungen. Zum Hinzufügen von eigenen Funktionen können registerTabs definiert werden (siehe Verwendung).
+Erweiterbare Debugbar zum Debuggen von PHP-Webanwendungen. Zum Hinzufügen von eigenen Funktionen können registerTabs definiert werden.
 
 ## Installation
 
@@ -34,8 +34,9 @@ echo Debugbar::getInstance();
 
 ## Neue Tabs definieren
 
-+ Funktion in Outputbuffer speichern
-+ Neue Tabs registrieren
+
+Die Ausgabe muss als String übergeben werden.
+
 
 ```php
 <?php
@@ -51,3 +52,20 @@ Debugbar::on("create", function($bar){
 echo Debugbar::getInstance();
 
 ```
+> erzeugt neuen Tab PHP Info
+
+
+```php
+
+
+<?php
+
+Debugbar::on("create", function($bar){
+    $bar->registerInfo("currentdate", date("d.m.Y"));
+    $bar->registerInfo("currentweek", date("W"));
+});
+
+echo Debugbar::getInstance();
+```
+
+> erzeugt neuen Tab mit aktuellem Datum
