@@ -56,8 +56,6 @@ echo Debugbar::getInstance();
 
 
 ```php
-
-
 <?php
 
 Debugbar::on("create", function($bar){
