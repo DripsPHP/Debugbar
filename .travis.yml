@@ -6,7 +6,7 @@ php:
   - 7.0
   - hhvm
   - nightly
- matrix:
+matrix:
   allow_failures:
     - php: nightly
 script:
