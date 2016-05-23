@@ -35,9 +35,17 @@ class Debugbar extends Event
         return $buffer->end();
     }
 
-    public function registerTab($name, $title, $content)
+    public function registerTab($name, $title, $content='')
     {
         $this->tabs[$name] = array(static::TITLE => $title, static::CONTENT => $content);
+    }
+
+    public function appendTab($name, $content){
+      if(array_key_exists($name, $this->tabs)){
+        $this->tabs[$name][static::CONTENT].=$content;
+        return true;
+      }
+      return false;
     }
 
     public function registerInfo($name, $info)
