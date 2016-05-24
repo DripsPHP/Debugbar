@@ -7,7 +7,7 @@
         "drips/debugger": "dev-master"
     },
     "require": {
-        "drips/utils": "^0.1.5"
+        "drips/utils": "dev-master"
     },
     "autoload": {
         "psr-4": {
