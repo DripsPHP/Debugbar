@@ -3,6 +3,9 @@
     "description": "Dynamische Debugbar zum Debuggen von PHP-Webanwendungen.",
     "keywords": ["debug", "debugbar"],
     "license": "MIT",
+    "require-dev": {
+        "drips/debugger": "dev-master"
+    },
     "require": {
         "drips/utils": "^0.1.5"
     },
