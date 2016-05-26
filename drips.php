@@ -8,7 +8,8 @@ if(class_exists('Drips\App')){
     App::on('shutdown', function(){
         if(in_array("text/html", (new Request)->getAccept())){
             $debugbar = Debugbar::getInstance();
-            if(!empty($debugbar->getTabs())){
+            $tabs = $debugbar->getTabs();
+            if(!empty($tabs)){
                 echo $debugbar;
             }
         }
