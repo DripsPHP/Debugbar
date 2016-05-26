@@ -12,6 +12,7 @@
     "autoload": {
         "psr-4": {
             "Drips\\Debugbar\\": "src"
-        }
+        },
+        "files": ["drips.php"]
     }
 }
