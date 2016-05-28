@@ -13,6 +13,6 @@
         "psr-4": {
             "Drips\\Debugbar\\": "src"
         },
-        "files": ["drips.php", "config.php"]
+        "files": ["drips.php"]
     }
 }
