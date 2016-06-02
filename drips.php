@@ -10,7 +10,8 @@ if(!defined('DRIPS_DEBUG')){
 
 if(class_exists('Drips\App')){
     App::on('shutdown', function(){
-        if(in_array("text/html", (new Request)->getAccept())){
+	$request = Request::getInstance();
+        if(in_array("text/html", $request->getAccept())){
             $debugbar = Debugbar::getInstance();
             $tabs = $debugbar->getTabs();
             if(!empty($tabs)){
