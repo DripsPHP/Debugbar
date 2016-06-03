@@ -4,8 +4,8 @@ include("vendor/autoload.php");
 
 error_reporting(E_ALL);
 
-use Drips\Debugger;
-// use Drips\Debugbar\Debugbar;
+//use Drips\Debugger;
+use Drips\Debugbar\Debugbar;
 
 Debugbar::on("create", function($bar){
     $bar->registerTab("test", "TestTab", "<h1>Works!</h1>");
@@ -17,6 +17,8 @@ Debugbar::on("create", function($bar){
     $bar->appendTab("dumper", "<h1>Works!</h1>");
     $bar->registerInfo("currentdate", date("d.m.Y"));
     $bar->registerInfo("currentweek", date("W"));
+    $bar->rename("currentdate", "neuer name");
+    $bar->renametabs("test", "neuer name tab");
 });
 
 /*
