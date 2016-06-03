@@ -17,8 +17,8 @@ Debugbar::on("create", function($bar){
     $bar->appendTab("dumper", "<h1>Works!</h1>");
     $bar->registerInfo("currentdate", date("d.m.Y"));
     $bar->registerInfo("currentweek", date("W"));
-    $bar->rename("currentdate", "neuer name");
-    $bar->renametabs("test", "neuer name tab");
+    $bar->setInfo("currentdate", "neuer name info");
+    $bar->setTabTitle("test", "neuer Name");
 });
 
 /*

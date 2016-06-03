@@ -63,12 +63,39 @@ class Debugbar extends Event
         return $this->infos;
     }
 
-    public function rename($name, $new_name){
-        $this->infos[$name] = $new_name;
+    public function setInfo($name, $new_name){
+        $this->registerInfo($name, $new_name);
     }
 
-    public function renametabs($name, $new_name, $content=''){
-        $this->tabs[$name] = array(static::TITLE => $new_name, static::CONTENT => $content);
+    public function setTabTitle($name, $new_name){
+        if($this->hasTab($name)){
+            $this->tabs[$name][static::TITLE] = $new_name;
+        }
     }
 
+    public function getInfo($name){
+        if($this->hasInfo($name)){
+            return $this->infos[$name];
+        }
+    }
+
+    public function hasInfo($name){
+        return isset($this->infos[$name]);
+    }
+
+    public function hasTab($name){
+        return isset($this->tabs[$name]);
+    }
+
+    public function getTabTitle($name){
+        if($this->hasTab($name)){
+            return $this->tabs[$name][static::TITLE];
+        }
+    }
+
+    public function getTabContent($name){
+        if($this->hasTab($name)){
+            return $this->tabs[$name][static::CONTENT];
+        }
+    }
 }
