@@ -13,8 +13,7 @@ if(class_exists('Drips\App')){
 	$request = Request::getInstance();
         if(in_array("text/html", $request->getAccept())){
             $debugbar = Debugbar::getInstance();
-            $tabs = $debugbar->getTabs();
-            if(!empty($tabs)){
+            if($debugbar->hasTabs()){
                 echo $debugbar;
             }
         }

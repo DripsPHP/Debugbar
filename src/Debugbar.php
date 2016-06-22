@@ -63,6 +63,10 @@ class Debugbar extends Event
         return $this->infos;
     }
 
+    public function hasInfos(){
+        return !empty($this->infos);
+    }
+
     public function setInfo($name, $new_name){
         $this->registerInfo($name, $new_name);
     }
@@ -85,6 +89,10 @@ class Debugbar extends Event
 
     public function hasTab($name){
         return isset($this->tabs[$name]);
+    }
+
+    public function hasTabs(){
+        return !empty($this->tabs);
     }
 
     public function getTabTitle($name){
