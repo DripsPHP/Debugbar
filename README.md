@@ -89,11 +89,8 @@ echo Debugbar::getInstance();
 ```php
 <?php
 
-Debugbar::on("create", function($bar){
     $bar->setTabTitle("test", "neuer Name");
-});
 
-echo Debugbar::getInstance();
 ```
 > ändert den Titel auf "neuer Name"
 
@@ -103,11 +100,7 @@ echo Debugbar::getInstance();
 ```php
 <?php
 
-Debugbar::on("create", function($bar){
     $bar->setInfo("currentdate", "neuer Name Info");
-});
-
-echo Debugbar::getInstance();
 ```
 > ändert den Titel auf "neuer Name Info"
 
@@ -116,11 +109,7 @@ echo Debugbar::getInstance();
 ```php
 <?php
 
-Debugbar::on("create", function($bar){
     $bar->getTabs();
-});
-
-echo Debugbar::getInstance();
 ```
 >  gibt alle Tabs zurück
 
@@ -129,26 +118,36 @@ echo Debugbar::getInstance();
 ```php
 <?php
 
-Debugbar::on("create", function($bar){
-    getTabTitle($name)
-});
-
-echo Debugbar::getInstance();
+    $bar->getTabTitle($name)
 ```
 >  überprüft, ob der Tab bereits existiert und gibt den Namen zurück
-
 
 
 ```php
 <?php
 
-Debugbar::on("create", function($bar){
-    getTabContent($name)
-});
-
-echo Debugbar::getInstance();
+    $bar->getTabContent($name)
 ```
 >  überprüft, ob der Tab bereits existiert und gibt den Inhalt zurück
+
+
+```php
+<?php
+
+    $bar->hasTabs()
+```
+>  gibt true zurück, wenn der Tab bereits existiert
+
+```php
+<?php
+
+    $bar->hasTab($name)
+```
+>  gibt true zurück, wenn der Name des Tabs bereits existiert
+
+
+
+
 
 
 
@@ -156,11 +155,7 @@ echo Debugbar::getInstance();
 ```php
 <?php
 
-Debugbar::on("create", function($bar){
     $bar->getInfos();
-});
-
-echo Debugbar::getInstance();
 ```
 >  gibt alle Infos zurück
 
@@ -168,10 +163,23 @@ echo Debugbar::getInstance();
 ```php
 <?php
 
-Debugbar::on("create", function($bar){
     $bar->getInfo();
-});
-
-echo Debugbar::getInstance();
 ```
 >  überprüft, ob Info bereits existiert und gibt den Namen zurück
+
+
+
+```php
+<?php
+
+    $bar->hasInfo($name);
+```
+>  gibt true zurück, wenn der Name bereits existiert
+
+
+```php
+<?php
+
+    $bar->hasInfos();
+```
+>  gibt true zurück, wenn Info bereits existiert
