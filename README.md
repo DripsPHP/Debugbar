@@ -70,6 +70,7 @@ echo Debugbar::getInstance();
 
 ```php
 <?php
+
 Debugbar::on("create", function($bar){
     $bar->registerTab("test", "TestTab", "<h1>Works!</h1>");
     $bar->appendTab("test", "<h1>Works!</h1>");
@@ -82,3 +83,95 @@ Debugbar::on("create", function($bar){
 echo Debugbar::getInstance();
 ```
 > appendTab: Inhalt wird an bestehende Tabs angehängt
+
+
+## Tabs umbenennen
+```php
+<?php
+
+Debugbar::on("create", function($bar){
+    $bar->setTabTitle("test", "neuer Name");
+});
+
+echo Debugbar::getInstance();
+```
+> ändert den Titel auf "neuer Name"
+
+
+
+## Info umbenennen
+```php
+<?php
+
+Debugbar::on("create", function($bar){
+    $bar->setInfo("currentdate", "neuer Name Info");
+});
+
+echo Debugbar::getInstance();
+```
+> ändert den Titel auf "neuer Name Info"
+
+
+## Tabs überprüfen
+```php
+<?php
+
+Debugbar::on("create", function($bar){
+    $bar->getTabs();
+});
+
+echo Debugbar::getInstance();
+```
+>  gibt alle Tabs zurück
+
+
+
+```php
+<?php
+
+Debugbar::on("create", function($bar){
+    getTabTitle($name)
+});
+
+echo Debugbar::getInstance();
+```
+>  überprüft, ob der Tab bereits existiert und gibt den Namen zurück
+
+
+
+```php
+<?php
+
+Debugbar::on("create", function($bar){
+    getTabContent($name)
+});
+
+echo Debugbar::getInstance();
+```
+>  überprüft, ob der Tab bereits existiert und gibt den Inhalt zurück
+
+
+
+## Infos überprüfen
+```php
+<?php
+
+Debugbar::on("create", function($bar){
+    $bar->getInfos();
+});
+
+echo Debugbar::getInstance();
+```
+>  gibt alle Infos zurück
+
+
+```php
+<?php
+
+Debugbar::on("create", function($bar){
+    $bar->getInfo();
+});
+
+echo Debugbar::getInstance();
+```
+>  überprüft, ob Info bereits existiert und gibt den Namen zurück
