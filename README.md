@@ -111,7 +111,7 @@ echo Debugbar::getInstance();
 
     $tabs = $debugbar->getTabs();
     foreach($tabs as $tab){
-        dump($tab);
+        var_dump($tab);
     }
 ```
 >  gibt alle registrierten Tabs aus
@@ -122,7 +122,7 @@ echo Debugbar::getInstance();
 <?php
 
 $tab = $debugbar->getTabTitle("test");
-dump($tab);
+var_dump($tab);
 ```
 >  überprüft, ob der Tab bereits registriert wurde und gibt den Namen aus
 
@@ -131,7 +131,7 @@ dump($tab);
 <?php
 
 $tab = $debugbar->getTabContent("test");
-dump($tab);
+var_dump($tab);
 
 ```
 >  überprüft, ob der Tab bereits registriert wurde und gibt den Inhalt aus
@@ -170,7 +170,7 @@ if($debugbar->hasTab($name)){
 
 $infos = $debugbar->getInfos();
 foreach($infos as $info){
-    dump($info);
+    var_dump($info);
 }
 ```
 >  gibt alle registrieren Infos aus
@@ -179,7 +179,7 @@ foreach($infos as $info){
 ```php
 <?php
 $info = $debugbar->getInfo("currentdate");
-dump($info);
+var_dump($info);
 ```
 >  überprüft, ob Info bereits registriert wurde und gibt den Namen aus
 
