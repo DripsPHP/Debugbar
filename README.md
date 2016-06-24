@@ -23,10 +23,10 @@ include("vendor/autoload.php");
 
 use Drips\Debugbar\Debugbar;
 
-Debugbar::on("create", function($bar){
-    $bar->registerTab("test", "TestTab", "<h1>Works!</h1>");
-    $bar->registerTab("test2", "2. Tab", "<h1>Works ebenso!</h1>");
-    $bar->registerInfo("currentdate", date("d.m.Y"));
+Debugbar::on("create", function($debugbar){
+    $debugbar->registerTab("test", "TestTab", "<h1>Works!</h1>");
+    $debugbar->registerTab("test2", "2. Tab", "<h1>Works ebenso!</h1>");
+    $debugbar->registerInfo("currentdate", date("d.m.Y"));
 });
 echo Debugbar::getInstance();
 
@@ -41,12 +41,12 @@ Die Ausgabe muss als String übergeben werden.
 ```php
 <?php
 
-Debugbar::on("create", function($bar){
+Debugbar::on("create", function($debugbar){
     $buffer = new Drips\Utils\Outputbuffer;
     $buffer->start();
     phpinfo();
     $buffer->end();
-    $bar->registerTab("phpinfo", "PHP Info", $buffer->getContent());
+    $debugbar->registerTab("phpinfo", "PHP Info", $buffer->getContent());
 
 });
 echo Debugbar::getInstance();
@@ -58,9 +58,9 @@ echo Debugbar::getInstance();
 ```php
 <?php
 
-Debugbar::on("create", function($bar){
-    $bar->registerInfo("currentdate", date("d.m.Y"));
-    $bar->registerInfo("currentweek", date("W"));
+Debugbar::on("create", function($debugbar){
+    $debugbar->registerInfo("currentdate", date("d.m.Y"));
+    $debugbar->registerInfo("currentweek", date("W"));
 });
 
 echo Debugbar::getInstance();
@@ -71,13 +71,13 @@ echo Debugbar::getInstance();
 ```php
 <?php
 
-Debugbar::on("create", function($bar){
-    $bar->registerTab("test", "TestTab", "<h1>Works!</h1>");
-    $bar->appendTab("test", "<h1>Works!</h1>");
-    $bar->registerTab("test", "TestTab", "<h1>Works!</h1>");
-    $bar->registerTab("test2", "2. Tab", "<h1>Works ebenso!</h1>");
-    $bar->registerInfo("currentdate", date("d.m.Y"));
-    $bar->registerInfo("currentweek", date("W"));
+Debugbar::on("create", function($debugbar){
+    $debugbar->registerTab("test", "TestTab", "<h1>Works!</h1>");
+    $debugbar->appendTab("test", "<h1>Works!</h1>");
+    $debugbar->registerTab("test", "TestTab", "<h1>Works!</h1>");
+    $debugbar->registerTab("test2", "2. Tab", "<h1>Works ebenso!</h1>");
+    $debugbar->registerInfo("currentdate", date("d.m.Y"));
+    $debugbar->registerInfo("currentweek", date("W"));
 });
 
 echo Debugbar::getInstance();
@@ -89,7 +89,7 @@ echo Debugbar::getInstance();
 ```php
 <?php
 
-    $bar->setTabTitle("test", "neuer Name");
+    $debugbar->setTabTitle("test", "neuer Name");
 
 ```
 > ändert den Titel auf "neuer Name"
@@ -100,7 +100,7 @@ echo Debugbar::getInstance();
 ```php
 <?php
 
-    $bar->setInfo("currentdate", "neuer Name Info");
+    $debugbar->setInfo("currentdate", "neuer Name Info");
 ```
 > ändert den Titel auf "neuer Name Info"
 
@@ -109,42 +109,55 @@ echo Debugbar::getInstance();
 ```php
 <?php
 
-    $bar->getTabs();
+    $tabs = $debugbar->getTabs();
+    foreach($tabs as $tab){
+        dump($tab);
+    }
 ```
->  gibt alle Tabs zurück
+>  gibt alle registrierten Tabs aus
 
 
 
 ```php
 <?php
 
-    $bar->getTabTitle($name)
+$tab = $debugbar->getTabTitle("test");
+dump($tab);
 ```
->  überprüft, ob der Tab bereits existiert und gibt den Namen zurück
+>  überprüft, ob der Tab bereits registriert wurde und gibt den Namen aus
 
 
 ```php
 <?php
 
-    $bar->getTabContent($name)
+$tab = $debugbar->getTabContent("test");
+dump($tab);
+
 ```
->  überprüft, ob der Tab bereits existiert und gibt den Inhalt zurück
+>  überprüft, ob der Tab bereits registriert wurde und gibt den Inhalt aus
 
 
 ```php
 <?php
 
-    $bar->hasTabs()
+if($debugbar->hasTabs()){
+ // Es sind bereits Tabs registriert
+} else {
+ // Es sind noch keine Tabs registriert
+}
 ```
->  gibt true zurück, wenn der Tab bereits existiert
+>  Überprüft, ob bereits Tabs registriert wurden
 
 ```php
 <?php
 
-    $bar->hasTab($name)
+if($debugbar->hasTab($name)){
+ // Dieser Tab wurde bereits registriert
+} else {
+ // Dieser Tab wurde noch nicht registriert
+}
 ```
->  gibt true zurück, wenn der Name des Tabs bereits existiert
-
+>  überprüft, ob ausgewählter Tab bereits registriert wurde
 
 
 
@@ -155,31 +168,41 @@ echo Debugbar::getInstance();
 ```php
 <?php
 
-    $bar->getInfos();
+$infos = $debugbar->getInfos();
+foreach($infos as $info){
+    dump($info);
+}
 ```
->  gibt alle Infos zurück
+>  gibt alle registrieren Infos aus
+
+
+```php
+<?php
+$info = $debugbar->getInfo("currentdate");
+dump($info);
+```
+>  überprüft, ob Info bereits registriert wurde und gibt den Namen aus
+
 
 
 ```php
 <?php
 
-    $bar->getInfo();
+if($debugbar->hasInfo($name)){
+ // Diese Info wurde bereits registriert
+} else {
+ // Diese Info wurde noch nicht registriert
+}
 ```
->  überprüft, ob Info bereits existiert und gibt den Namen zurück
-
+>  Überprüft, ob ausgewählter Info bereits registriert wurde
 
 
 ```php
 <?php
-
-    $bar->hasInfo($name);
+if($debugbar->hasInfos()){
+ // Es sind bereits Infos registriert
+} else {
+ // Es sind noch keine Infos registriert
+}
 ```
->  gibt true zurück, wenn der Name bereits existiert
-
-
-```php
-<?php
-
-    $bar->hasInfos();
-```
->  gibt true zurück, wenn Info bereits existiert
+>  Überprüft, ob bereits Infos registriert wurden
