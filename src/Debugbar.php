@@ -5,8 +5,10 @@ namespace Drips\Debugbar;
 use Drips\Utils\Event;
 use Drips\Utils\OutputBuffer;
 
-class Debugbar extends Event
+class Debugbar
 {
+    use Event;
+    
     const TITLE = "title";
     const CONTENT = "content";
     private static $instance;
