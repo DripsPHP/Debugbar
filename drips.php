@@ -17,9 +17,9 @@ if(class_exists('Drips\App')){
                 $debugbarString = $debugbar->__toString();
                 $bodyTag = '</body>';
                 if(strpos($response->body, $bodyTag) !== false){
-                    $reponse->body = str_replace($bodyTag, $debugbarString.$bodyTag, $response->body);
+                    $response->body = str_replace($bodyTag, $debugbarString.$bodyTag, $response->body);
                 } else {
-                    $reponse->body .= $debugbarString;
+                    $response->body .= $debugbarString;
                 }
             }
         }
