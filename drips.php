@@ -1,7 +1,7 @@
 <?php
 
-use Drips\App;
 use Drips\HTTP\Request;
+use Drips\HTTP\Response;
 use Drips\Debugbar\Debugbar;
 
 if(!defined('DRIPS_DEBUG')){
@@ -9,12 +9,13 @@ if(!defined('DRIPS_DEBUG')){
 }
 
 if(class_exists('Drips\App')){
-    App::on('shutdown', function(){
-	$request = Request::getInstance();
-        if(in_array("text/html", $request->getAccept())){
+    Response::on('send', function($response){
+	    $request = Request::getInstance();
+        if(in_array('text/html', $request->getAccept())){
             $debugbar = Debugbar::getInstance();
             if($debugbar->hasTabs()){
-                echo $debugbar;
+                $debugbarString = $debugbar->__toString();
+                $reponse->body = str_replace('</body>', $debugbarString.'</body>', $response->body);
             }
         }
     });

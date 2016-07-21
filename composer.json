@@ -7,12 +7,14 @@
         "drips/debugger": "dev-master"
     },
     "require": {
-        "drips/utils": "dev-master"
+        "drips/utils": "dev-master",
+        "drips/http": "dev-master"
     },
     "autoload": {
         "psr-4": {
             "Drips\\Debugbar\\": "src"
         },
         "files": ["drips.php"]
-    }
+    },
+    "minimum-stability": "dev"
 }
