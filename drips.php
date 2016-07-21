@@ -15,7 +15,12 @@ if(class_exists('Drips\App')){
             $debugbar = Debugbar::getInstance();
             if($debugbar->hasTabs()){
                 $debugbarString = $debugbar->__toString();
-                $reponse->body = str_replace('</body>', $debugbarString.'</body>', $response->body);
+                $bodyTag = '</body>';
+                if(strpos($response->body, $bodyTag) !== false){
+                    $reponse->body = str_replace($bodyTag, $debugbarString.$bodyTag, $response->body);
+                } else {
+                    $reponse->body .= $debugbarString;
+                }
             }
         }
     });
