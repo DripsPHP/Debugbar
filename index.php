@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 //use Drips\Debugger;
 use Drips\Debugbar\Debugbar;
 
-Debugbar::on("create", function($bar){
+Debugbar::on("create", function ($bar) {
     $bar->registerTab("test", "TestTab", "<h1>Works!</h1>");
     $bar->appendTab("test", "<h1>Works!</h1>");
     $bar->registerTab("test", "TestTab", "<h1>Works!</h1>");

@@ -1,15 +1,19 @@
 @import url(https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700);
+
 body {
     margin-bottom: 50px;
 }
+
 #debugbar {
     font-family: 'Maven Pro', sans-serif;
 }
+
 #debugbar-logo {
     position: absolute;
     top: 8px;
     left: 8px;
 }
+
 #debugbar-header nav > a, #debugbar-header > div > span {
     color: white;
     text-decoration: none;
@@ -20,12 +24,14 @@ body {
     border-right: 1px solid #3c424b;
     background-color: transparent;
 }
+
 #debugbar a:hover, .debugbartab-active {
     background-color: #A0D486 !important;
     position: relative;
     z-index: 10000000000000000;
     border-color: #A0D486 !important;
 }
+
 #debugbar {
     box-shadow: 0 -1px 10px #3c424b;
     color: white;
@@ -36,6 +42,7 @@ body {
     background-color: #f5f7fa;
     z-index: 100000000000;
 }
+
 #debugbar-content {
     color: black;
     display: none;
@@ -45,12 +52,14 @@ body {
     border-top: 1px solid #A0D486;
     overflow-y: scroll;
 }
+
 #debugbar-header {
     background-color: #434a54;
     position: relative;
     border-bottom: 2px solid #A0D486;
     padding-left: 36px;
 }
+
 #debugbar-header-close {
     float: right;
     color: #e9573f;
@@ -59,11 +68,12 @@ body {
     cursor: pointer;
     display: none;
 }
+
 #debugbar .tab {
     display: none;
 }
 
-@media(max-width: 768px){
+@media (max-width: 768px) {
     #debugbar {
         display: none;
     }

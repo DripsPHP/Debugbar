@@ -1,20 +1,24 @@
 {
-    "name": "drips/debugbar",
-    "description": "Dynamische Debugbar zum Debuggen von PHP-Webanwendungen.",
-    "keywords": ["debug", "debugbar"],
-    "license": "MIT",
-    "require-dev": {
-        "drips/debugger": "dev-master"
+  "name": "drips/debugbar",
+  "description": "Dynamische Debugbar zum Debuggen von PHP-Webanwendungen.",
+  "keywords": [
+    "debug",
+    "debugbar"
+  ],
+  "license": "MIT",
+  "require-dev": {
+    "drips/debugger": "^v1.0"
+  },
+  "require": {
+    "drips/utils": "^1.0",
+    "drips/http": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Drips\\Debugbar\\": "src"
     },
-    "require": {
-        "drips/utils": "dev-master",
-        "drips/http": "dev-master"
-    },
-    "autoload": {
-        "psr-4": {
-            "Drips\\Debugbar\\": "src"
-        },
-        "files": ["drips.php"]
-    },
-    "minimum-stability": "dev"
+    "files": [
+      "drips.php"
+    ]
+  }
 }
