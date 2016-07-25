@@ -7,7 +7,7 @@
   ],
   "license": "MIT",
   "require-dev": {
-    "drips/debugger": "^v1.0"
+    "drips/debugger": "^1.0"
   },
   "require": {
     "drips/utils": "^1.0",
